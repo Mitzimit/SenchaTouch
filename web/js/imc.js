@@ -1,61 +1,35 @@
-//var email = Ext.getCmp('email').getValue();
-
-
 Ext.application({
-    
-name: 'HolaMundo',
-launch: function () {
- 
-//Ext.Msg.alert('Bienvenidos la suma es '+z);
-
- Ext.create('Ext.form.Panel', {
-    fullscreen: true,
-    items: [
-        {
-            xtype: 'fieldset',
-            id:'formulario',
-            title: 'Cálculo de tu I.M.C.',
-            instructions: 'Proporcionanos los siguientes datos',
-            items: [
-                {
-                    xtype: 'textfield',
-                    name : 'peso',
-                    id:'peso',
-                    label: 'Peso:'
-                },
-                {
-                    xtype: 'textfield',
-                    name : 'altura',
-                    id:'altura',
-                    label: 'Altura:'
-                },
-                {
-                    xtype:'button',
-                    text:'calcular imc',
-                    ui:'confirm',
-                    handler:function(){
-                        var peso=Ext.getCmp('peso').getValue();
-                        var altura=Ext.getCmp('altura').getValue();
-                        var imc=peso/(altura*altura);
-                     // Ext.getCmp('altura').setValue(peso);
-                    
-                      Ext.getCmp('formulario').setInstructions('Tu imc es:'+imc);
-                        //Ext.Msg.alert("El peso ingresado es:"+peso);
-                    }
+    name:'mi_imc',
+    launch:function(){
+        Ext.create('Ext.Panel',{
+          fullscreen:true,
+          items:[
+              {
+                  xtype:'textfield',
+                  label:'Tu peso',
+                  placeHolder:'Introduce tu peso',
+                  id:'peso'
+              },
+              {
+                  xtype:'textfield',
+                  label:'Altura',
+                  placeHolder:'Tu altura en m.',
+                  id:'altura'
+              },
+              {
+                  xtype:'button',
+                  text:'calcular imc',
+                  id:'calcular',
+                  ui:'confirm',
+                handler:function(){
+                    Ext.Msg.alert('Cola de rata');
                 }
-                
-                
-            ]
-        },
-        {
-            
-                  html:'<center><img src="img/modelo.jpg" width="60% height="60%"  /></center>'
-                    
-                
-        }
-        
-    ]
-});
-
+              },
+              {
+                  html:'Resultado',
+                  id:'resultado'
+              }
+          ]
+        });
     }
 });
